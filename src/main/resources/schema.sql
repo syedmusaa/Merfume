@@ -20,7 +20,7 @@ CREATE TABLE User_Roles (
 CREATE TABLE Order (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
-    total_amount DECIMAL(10, 2),
+    total_amount BigDecimal(10, 2),
     status VARCHAR(50),
     FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS Perfume (
     brand VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     fragrance_notes VARCHAR(255) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
+    price BigDecimal(10, 2) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     rating FLOAT,
     CONSTRAINT chk_price CHECK (price >= 0)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS OrderItem (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     perfume_id BIGINT,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
+    price BigDecimal(10, 2) NOT NULL,
     FOREIGN KEY (perfume_id) REFERENCES Perfume(id) ON DELETE CASCADE
 );
 
